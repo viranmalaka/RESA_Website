@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeminarUserTable extends Migration
+class CreateSeminarUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateSeminarUserTable extends Migration
     public function up()
     {
         Schema::create('seminar_user', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->integer('seminar_id')->unsigned();
-            $table->foreign('seminar_id')->reference('id')->on('seminars');
+            //$table->foreign('seminar_id')->references('id')->on('seminars');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->referemce('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateSeminarUserTable extends Migration
      */
     public function down()
     {
-        Schema::drop('seminar_user');
+        //
     }
 }
