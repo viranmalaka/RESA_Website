@@ -13,6 +13,11 @@
 
     @endif
 
+    @if(Auth::check())
+        {{ Auth::user()['name'] }}
+    @else
+        Log out
+    @endif
     @yield('body')
 </body>
 

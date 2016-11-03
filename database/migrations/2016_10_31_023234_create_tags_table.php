@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeminarTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,11 @@ class CreateSeminarTable extends Migration
      */
     public function up()
     {
-        Schema::create('seminars', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('school');
-            $table->date('date');
-            $table->text('description');
-            //photoes
-
-            $table->integer('likes')->unsigned();
-
+            
+            $table->string('name');
+            
             $table->timestamps();
         });
     }
@@ -35,6 +28,6 @@ class CreateSeminarTable extends Migration
      */
     public function down()
     {
-        Schema::drop('kuppis');
+        Schema::drop('tags');
     }
 }
