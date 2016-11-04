@@ -1,0 +1,26 @@
+when a user(junior) give a notification about the kuppi that is going to be held.
+
+soft copy of papers download section.
+
+can a member add more than one answer to the same question?
+
+
+
+
+
+
+
+////////////////////////////////////////////
+authentication accesses
+    - guest
+        ask a question
+        comment on seminar
+        view seminar photos
+
+
+    - access level 0:
+        not activated user. nothing can done. like a guest
+
+    - access level 1:
+        can ->  post an answer
+                add / view a seminar

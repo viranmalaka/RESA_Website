@@ -12,6 +12,14 @@
         </div>
 
     @endif
+    @if (Session::has('rejected'))
+
+        <div class="alert alert-success" role="alert">
+            <strong>Rejected:</strong> {{ Session::get('rejected') }}
+        </div>
+
+    @endif
+
 
     @if(Auth::check())
         {{ Auth::user()['name'] }}

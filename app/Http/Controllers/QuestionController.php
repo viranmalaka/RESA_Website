@@ -7,6 +7,7 @@ use App\Tag;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Session;
 use Validator;
 
 class QuestionController extends Controller
@@ -52,11 +53,15 @@ class QuestionController extends Controller
     {
 
         $validator = Validator::make($request->all(), Question::$rules);
-
-
+        $alltags = Tag::all();
+        $tags = [];
+        foreach ($alltags as $tag){
+            $tags[$tag['id']] = $tag['name'];
+        }
 
         if ($validator->fails()){
-            return view('questions.create')->withInput($request);
+            Session::flash('rejected', 'Questions is not added');
+            return view('questions.create')->withInput($request)->withTags($tags)->withMessages($validator->messages());
         }else{
             $question = new Question();
 
@@ -68,7 +73,8 @@ class QuestionController extends Controller
             $question->save();
             $question->tags()->sync($request->tag, false);
 
-            return "saved";
+            Session::flash('success', 'Question saved successfully');
+            return redirect()->route('questions.show', $request->id);
         }
 
     }
@@ -94,7 +100,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        //@todo edit questions
     }
 
     /**
@@ -106,7 +112,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // @todo update questions
     }
 
     /**
@@ -117,6 +123,6 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //@todo delete 
     }
 }

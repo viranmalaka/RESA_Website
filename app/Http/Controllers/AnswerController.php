@@ -23,14 +23,15 @@ class AnswerController extends Controller
         $validator = Validator::make($request->all(), Answer::$rules);
 
         if ($validator->fails()){
-            Session::flush('Answers is not Saved');
+            Session::flash('rejected', 'Answers is not Saved');
         }else{
             $answer = new Answer();
             $answer->user_id = $request->user_id;
             $answer->question_id = $request->question_id;
             $answer->body = $request->body;
-
+            
             $answer->save();
+            
         }
         return redirect()->route('questions.show', $request->question_id);
     }
@@ -43,7 +44,7 @@ class AnswerController extends Controller
      */
     public function edit($id)
     {
-        //
+        //@todo here and the view
     }
 
     /**
@@ -55,7 +56,7 @@ class AnswerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //@todo update answers
     }
 
     /**
@@ -66,6 +67,6 @@ class AnswerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //@todo delete answer
     }
 }
