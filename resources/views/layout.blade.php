@@ -1,32 +1,25 @@
 <html>
 <head>
-    <title>RESA - @yield('title')</title>
+    @include('partials._head')
 </head>
 
 <body>
+    @include('partials._navbar')
 
-    @if (Session::has('success'))
-
-        <div class="alert alert-success" role="alert">
-            <strong>Success:</strong> {{ Session::get('success') }}
-        </div>
-
-    @endif
-    @if (Session::has('rejected'))
-
-        <div class="alert alert-success" role="alert">
-            <strong>Rejected:</strong> {{ Session::get('rejected') }}
-        </div>
-
-    @endif
-
+    @include('partials._session')
 
     @if(Auth::check())
         {{ Auth::user()['name'] }}
     @else
         Log out
     @endif
+
     @yield('body')
+
+
+    @include('partials._footer')
+
+    @include('partials._script')
 </body>
 
 </html>

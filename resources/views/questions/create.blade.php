@@ -27,11 +27,22 @@
     <br>
 
     {{ Form::select('tag[]', $tags,
-    isset($input) ? $input['level'] : null, ['class' => '', 'multiple' => 'multiple' ]
+    isset($input) ? $input['level'] : null, ['class' => 'form-control select2-multi', 'multiple' => 'multiple' ]
     ) }}
 
     {{ Form::submit('Submit', ['class' => '']) }}
 
     {!! Form::close() !!}
+
+@endsection
+
+
+@section('scripts')
+
+    {!! Html::script('js/select2.min.js') !!}
+
+    <script type="text/javascript">
+        $('.select2-multi').select2();
+    </script>
 
 @endsection

@@ -37,6 +37,7 @@ class AuthController extends Controller
      * Create a new authentication controller instance.
      *
      * @return void
+     * 
      */
     public function __construct()
     {
@@ -97,8 +98,8 @@ class AuthController extends Controller
             $image = Input::file('p_pic');
             $location = public_path('image/' . $fileName);
             Image::make($image)->resize(400, 400)->save($location);
-
         }
+        
         Session::flush('success', 'User Created');
         return $user;
     }

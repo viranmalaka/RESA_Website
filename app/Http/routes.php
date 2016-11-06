@@ -28,5 +28,6 @@ Route::group(['middleware' => ['web']], function(){
     Route::resource('answers', 'AnswerController');
     Route::resource('tags', 'TagController');
     Route::resource('kuppi', 'KuppiController');
+    Route::resource('seminar', 'SeminarController');
 });
 Route::resource('questions', 'QuestionController');
