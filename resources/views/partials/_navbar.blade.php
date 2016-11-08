@@ -1,7 +1,7 @@
 <div class="nav-agency">
     <div class="navbar navbar-static-top">
         <div class="navbar-inner">
-            <div class="container"> <a class="brand" href="index.html"> <img src="assets/img/Logodark.png" alt=""></a>
+            <div class="container"> <a class="brand" href="index.html"> <img src="https://" alt=""></a>
                 <div id="main-nav">
                     <div class="nav-collapse collapse">
                         <ul class="nav">

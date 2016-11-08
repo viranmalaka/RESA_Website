@@ -13,8 +13,9 @@
     @else
         Log out
     @endif
-
+    <div class="container">
     @yield('body')
+    </div>
 
 
     @include('partials._footer')

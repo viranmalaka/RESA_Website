@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeminarPhotoTable extends Migration
+class CreateMyEnv2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,10 @@ class CreateSeminarPhotoTable extends Migration
      */
     public function up()
     {
-        Schema::create('seminar_photo', function (Blueprint $table) {
-            $table->integer('seminar_id')->unsigned();
-            $table->string('pic');
+        Schema::create('myEnv', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('myKey');
+            $table->string('myValue');
         });
     }
 
@@ -25,6 +26,6 @@ class CreateSeminarPhotoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('myEnv');
     }
 }

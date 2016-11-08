@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact' , 'PageController@getContact');
+Route::get('/add' , 'PageController@addValues');
+
+
 Route::group(['middleware' => ['web']], function(){
     Route::get('auth/login', 'Auth\AuthController@getLogin');
     Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -31,3 +35,4 @@ Route::group(['middleware' => ['web']], function(){
     Route::resource('seminar', 'SeminarController');
 });
 Route::resource('questions', 'QuestionController');
+
