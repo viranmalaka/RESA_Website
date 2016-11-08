@@ -416,7 +416,7 @@ hr.soften2 {
 	color: #2f2f2f;
 }
 .contact form input[type=text] {
-	padding: .5em;
+	padding: 1em;
 	width: 100%;
 }
 .contact form textarea {

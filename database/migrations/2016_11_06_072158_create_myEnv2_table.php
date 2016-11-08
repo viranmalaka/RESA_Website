@@ -13,8 +13,8 @@ class CreateMyEnv2Table extends Migration
     public function up()
     {
         Schema::create('myEnv', function (Blueprint $table) {
-            $table->increments('id');
             $table->string('myKey');
+            $table->primary('myKey');
             $table->string('myValue');
         });
     }

@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact' , 'PageController@getContact');
-Route::get('/add' , 'PageController@addValues');
+Route::get('/contact' , 'ContactMessageController@create');
+Route::post('/contact', 'ContactMessageController@store');
+//Route::get('/seed' , 'EnvController@seedKeys');
+
+
 
 
 Route::group(['middleware' => ['web']], function(){
