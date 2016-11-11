@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ContactMessage;
 use Illuminate\Http\Request;
+use Validator;
+use Session;
 
 use App\Http\Requests;
 
@@ -40,6 +42,7 @@ class ContactMessageController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), ContactMessage::$rule);
+
         if ($validator->fails()){
             Session::flash('rejected', 'Messages is not sent');
             return view('pages.contact')->withInput($request)->withMessages($validator->messages())

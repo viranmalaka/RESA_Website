@@ -25,23 +25,26 @@
             </div>
             <div class="span6">
                 <div class="wpcf7" id="wpcf7-f75-t1-o1">
-                    <form action= method="post" class="wpcf7-form" id="cform" name="cform">
                         {!! Form::open() !!}
                         <div id="output" class="alert"> </div>
                         <div class="form-meta clearfix">
                             <div class="formcol">
                                 <label for="name"> Name</label>
                                 <input type="text" name="name" value="" id="name" size="40">
+                                {{ isset($message) ? $message->has('name') ? $message->first('name'): "" : ""  }}
                                 <label for="email"> Email Address</label>
                                 <input type="text" name="email" id="email" value="" size="40">
+                                {{ isset($message) ? $message->has('email') ? $message->first('email'): "" : ""  }}
                                 <label for="subject"> Subject</label>
                                 <input type="text" name="subject" id="subject" value="" size="40">
+                                {{ isset($message) ? $message->has('email') ? $message->first('email'): "" : ""  }}
                             </div>
                         </div>
                         <label for="message"> Message</label>
                         <textarea name="message" id="message" cols="40" rows="10"></textarea>
+                    {{ isset($message) ? $message->has('message') ? $message->first('message'): "" : ""  }}
                         <input type="submit" id="send-message" value="Send" class="btn btn-success">
-                    </form>
+                        {!! Form::close() !!}
                 </div>
             </div>
         </div>
